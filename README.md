@@ -50,19 +50,19 @@ application/json
 Dear [Name],
 Thank you for your email...
 
+### ⚙️Configuration
 
-⚙️ Configuration
-
-Add the following in application.properties:
-
+Add the following in **application.properties**:
 spring.application.name=email-writer-sb
-
 gemini.api.url=${GEMINI_URL}
 gemini.api.key=${GEMINI_KEY}
-Environment Variables
+
+**Environment Variables**
 export GEMINI_URL=https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=
 export GEMINI_KEY=your_api_key_here
-🏗️ Project Structure
+
+### 🏗️ Project Structure
+```
 src/main/java/com/email/writer/app
 
 ├── controller
@@ -75,13 +75,16 @@ src/main/java/com/email/writer/app
 │   └── EmailRequest.java
 │
 └── AppApplication.java
-🧠 How It Works
+```
+
+### 🧠 How It Works
 Client sends email content via API
 Backend builds prompt
 Request sent to Gemini API
 AI generates reply
 Response parsed and returned
-▶️ Running the Application
+
+### ▶️ Running the Application
 1. Clone Repository
 git clone https://github.com/yourusername/email-writer-backend.git
 cd email-writer-backend
@@ -89,22 +92,22 @@ cd email-writer-backend
 mvn clean install
 3. Run
 mvn spring-boot:run
-🌐 API URL
+
+### 🌐 API URL
 http://localhost:8080/api/email/generate
-⚠️ Notes
+⚠️ **Notes**
 Keep your API keys secure
 Do not commit secrets to GitHub
 Use environment variables
-📈 Future Enhancements
+
+### 📈 Future Enhancements
 JWT Authentication
 Multi-language support
 Async processing
 UI Integration
-🤝 Contributing
+
+### 🤝 Contributing
 Fork the project
 Create a branch (feature/your-feature)
 Commit changes
 Push and create PR
-📄 License
-
-MIT License
