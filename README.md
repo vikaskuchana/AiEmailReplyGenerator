@@ -41,7 +41,7 @@ application/json
 
 ### Request Body
 
-```json
+json
 {
   "emailContent": "Original email text here...",
   "tone": "Professional"
