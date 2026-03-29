@@ -47,6 +47,15 @@ application/json
   "tone": "Professional"
 }
 
+
+Request Body
+
+```json
+{
+  "emailContent": "Original email text here...",
+  "tone": "Professional"
+}
+
 ### Response
 Dear [Name],
 Thank you for your email...
