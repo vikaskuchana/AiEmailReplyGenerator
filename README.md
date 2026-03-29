@@ -1,94 +1,108 @@
-📧 AI Email Reply Generator (Spring Boot + Gemini)
+# 📧 AI Email Reply Generator (Spring Boot + Gemini)
 
-An intelligent backend service built with Spring Boot that generates context-aware, tone-specific email replies using the Gemini API.
+An intelligent backend service built with Spring Boot that generates **context-aware, tone-specific email replies** using the Gemini LLM API.  
 This project acts as a bridge between a frontend application and AI-powered email generation.
 
-🚀 Features
-✨ Generate professional email replies using AI
-🎯 Tone customization (Professional, Friendly, etc.)
-🔌 RESTful API for easy frontend integration
-🌐 CORS enabled for cross-origin requests
-⚡ Lightweight and scalable backend architecture
-🛠️ Tech Stack
-Spring Boot
-Gemini API
-REST APIs
-Lombok
-Maven
-WebClient (Spring Reactive)
-📋 API Documentation
-🔹 Generate Email Reply
+---
 
-Endpoint:
+## 🚀 Features
 
+- Generate professional email replies using AI  
+- Tone customization (Professional, Friendly, etc.)  
+- RESTful API for easy frontend integration  
+- CORS enabled for cross-origin requests  
+- Lightweight and scalable backend  
+
+---
+
+## 🛠️ Tech Stack
+
+- Spring Boot  
+- Gemini API  
+- REST APIs  
+- Lombok  
+- Maven  
+- WebClient  
+
+---
+
+## 📋 API Documentation
+
+### Generate Email Reply
+
+**Endpoint**
 POST /api/email/generate
 
-Content-Type:
+
+**Content-Type**
 
 application/json
-✅ Request Body
+
+
+### Request Body
+
+```json
 {
   "emailContent": "Original email text here...",
   "tone": "Professional"
 }
-✅ Response
+Response
 Dear [Name],
 Thank you for your email...
 ⚙️ Configuration
 
-Set your Gemini API credentials using environment variables:
+Add the following in application.properties:
 
 spring.application.name=email-writer-sb
 
 gemini.api.url=${GEMINI_URL}
 gemini.api.key=${GEMINI_KEY}
-🔐 Example (Local Setup)
+Environment Variables
 export GEMINI_URL=https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=
 export GEMINI_KEY=your_api_key_here
 🏗️ Project Structure
 src/main/java/com/email/writer/app
-│
+
 ├── controller
-│   └── EmailGeneratorController.java   # Handles API requests
+│   └── EmailGeneratorController.java
 │
 ├── service
-│   └── EmailGeneratorService.java      # AI integration logic
+│   └── EmailGeneratorService.java
 │
 ├── dto
-│   └── EmailRequest.java               # Request payload
+│   └── EmailRequest.java
 │
-└── Application.java                   # Main Spring Boot app
+└── AppApplication.java
 🧠 How It Works
-User sends email content via REST API
-Backend builds a structured prompt
-Request is sent to Gemini API
-AI generates response
-Response is parsed and returned to client
+Client sends email content via API
+Backend builds prompt
+Request sent to Gemini API
+AI generates reply
+Response parsed and returned
 ▶️ Running the Application
-1️⃣ Clone Repository
+1. Clone Repository
 git clone https://github.com/yourusername/email-writer-backend.git
 cd email-writer-backend
-2️⃣ Build Project
+2. Build
 mvn clean install
-3️⃣ Run Application
+3. Run
 mvn spring-boot:run
-🌐 Access API
+🌐 API URL
 http://localhost:8080/api/email/generate
 ⚠️ Notes
-Ensure your Gemini API key is valid
-Do not expose API keys in public repositories
-Use .env or environment variables for security
+Keep your API keys secure
+Do not commit secrets to GitHub
+Use environment variables
 📈 Future Enhancements
-Add authentication (JWT)
-Email thread understanding
+JWT Authentication
 Multi-language support
-Async processing for high scalability
-UI integration
+Async processing
+UI Integration
 🤝 Contributing
-Fork the repository
-Create a new branch (feature/your-feature)
-Commit your changes
-Push and open a Pull Request
+Fork the project
+Create a branch (feature/your-feature)
+Commit changes
+Push and create PR
 📄 License
 
-This project is licensed under the MIT License.
+MIT License
