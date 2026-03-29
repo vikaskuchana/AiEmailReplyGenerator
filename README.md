@@ -1,88 +1,94 @@
-# AiEmailReplyGenerator
+📧 AI Email Reply Generator (Spring Boot + Gemini)
 
-An intelligent Spring Boot-based REST API that generates professional email replies using AI. This service acts as the bridge between your frontend application and the AI generation logic.
+An intelligent backend service built with Spring Boot that generates context-aware, tone-specific email replies using the Gemini API.
+This project acts as a bridge between a frontend application and AI-powered email generation.
 
 🚀 Features
-RESTful API: Clean and simple POST endpoint for email generation.
-
-CORS Enabled: Configured to allow requests from any origin (ideal for local development and frontend integration).
-
-Spring Boot 3+: Built with the latest Java standards.
-
-Lombok Integration: Minimal boilerplate code for better readability.
-
+✨ Generate professional email replies using AI
+🎯 Tone customization (Professional, Friendly, etc.)
+🔌 RESTful API for easy frontend integration
+🌐 CORS enabled for cross-origin requests
+⚡ Lightweight and scalable backend architecture
 🛠️ Tech Stack
-Java 17+
-
 Spring Boot
-
-Spring Web
-
+Gemini API
+REST APIs
 Lombok
-
-Maven (or Gradle)
-
+Maven
+WebClient (Spring Reactive)
 📋 API Documentation
-Generate Email Reply
-Generates a structured email response based on a provided request body.
+🔹 Generate Email Reply
 
-URL: /api/email/generate
+Endpoint:
 
-Method: POST
+POST /api/email/generate
 
-Content-Type: application/json
+Content-Type:
 
-Request Body Example:
-
-JSON
+application/json
+✅ Request Body
 {
-    "emailContent": "Original email text here...",
-    "tone": "Professional"
+  "emailContent": "Original email text here...",
+  "tone": "Professional"
 }
-Success Response:
+✅ Response
+Dear [Name],
+Thank you for your email...
+⚙️ Configuration
 
-Code: 200 OK
+Set your Gemini API credentials using environment variables:
 
-Content: "Dear [Name], Thank you for your email..."
+spring.application.name=email-writer-sb
 
-⚙️ Installation & Setup
-Clone the repository:
-
-Bash
+gemini.api.url=${GEMINI_URL}
+gemini.api.key=${GEMINI_KEY}
+🔐 Example (Local Setup)
+export GEMINI_URL=https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=
+export GEMINI_KEY=your_api_key_here
+🏗️ Project Structure
+src/main/java/com/email/writer/app
+│
+├── controller
+│   └── EmailGeneratorController.java   # Handles API requests
+│
+├── service
+│   └── EmailGeneratorService.java      # AI integration logic
+│
+├── dto
+│   └── EmailRequest.java               # Request payload
+│
+└── Application.java                   # Main Spring Boot app
+🧠 How It Works
+User sends email content via REST API
+Backend builds a structured prompt
+Request is sent to Gemini API
+AI generates response
+Response is parsed and returned to client
+▶️ Running the Application
+1️⃣ Clone Repository
 git clone https://github.com/yourusername/email-writer-backend.git
 cd email-writer-backend
-Install dependencies:
-
-Bash
-./mvnw clean install
-Run the application:
-
-Bash
-./mvnw spring-boot:run
-Access the API:
-The server will start by default on http://localhost:8080.
-
-🏗️ Project Structure
-The controller logic follows standard Spring Boot architecture:
-
-EmailGeneratorController: Handles the HTTP requests and routing.
-
-EmailGeneratorService: Contains the business logic for AI communication (referenced in the controller).
-
-EmailRequest: The Data Transfer Object (DTO) for incoming JSON payloads.
-
+2️⃣ Build Project
+mvn clean install
+3️⃣ Run Application
+mvn spring-boot:run
+🌐 Access API
+http://localhost:8080/api/email/generate
+⚠️ Notes
+Ensure your Gemini API key is valid
+Do not expose API keys in public repositories
+Use .env or environment variables for security
+📈 Future Enhancements
+Add authentication (JWT)
+Email thread understanding
+Multi-language support
+Async processing for high scalability
+UI integration
 🤝 Contributing
-Fork the Project
-
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-
-Push to the Branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
+Fork the repository
+Create a new branch (feature/your-feature)
+Commit your changes
+Push and open a Pull Request
 📄 License
-Distributed under the MIT License. See LICENSE for more information.
 
-Note: Ensure you have your AI API keys (like OpenAI or Gemini) configured in your application.properties or environment variables for the Service layer to function correctly.
+This project is licensed under the MIT License.
