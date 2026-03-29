@@ -46,9 +46,12 @@ application/json
   "emailContent": "Original email text here...",
   "tone": "Professional"
 }
-Response
+
+### Response
 Dear [Name],
 Thank you for your email...
+
+
 ⚙️ Configuration
 
 Add the following in application.properties:
